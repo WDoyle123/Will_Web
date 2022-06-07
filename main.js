@@ -77,7 +77,7 @@ scene.add(sun)
 
 //Earth
 
-const earthTexture = new THREE.TextureLoader().load('earth.webp');
+const earthTexture = new THREE.TextureLoader().load('earth.jpg');
 
 const earth = new THREE.Mesh(
   new THREE.SphereGeometry(5,32,32),
