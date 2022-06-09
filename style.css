@@ -2,15 +2,16 @@ canvas{
   position: fixed;
   top: 0;
   left: 0;
-  background-image: url("space2.jpg");
+  background-image: url("black.jpg");
   src: url("moon.jpg");
   src:url("earth.jpg");
   src: url("sun.jpg");
+  opacity: 0.9;
 
 }
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.0);
+  --dark-bg: rgba(15, 15, 15, 0.5);
   --spacing: 350px;
 
 
@@ -65,7 +66,7 @@ section {
 blockquote {
   margin: 0;
   padding: 0;
-  grid-column: 2 / span 9;
+  grid-column: 2 / span 5;
   margin-bottom: var(--spacing);
 }
 

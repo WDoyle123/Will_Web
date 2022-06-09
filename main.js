@@ -16,19 +16,15 @@ document.body.appendChild( renderer.domElement );
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth,window.innerHeight);
-camera.position.setZ(50);
-camera.position.setX(0);
-camera.position.setY(20);
 
+camera.position.setZ(50);
+camera.position.setX(150);
+camera.position.setY(120);
 
 
 renderer.render(scene,camera);
 
-const geometry = new THREE.TorusGeometry(10,3,16,100)
-const material = new THREE.MeshStandardMaterial({color: 0xFF6347}); 
-const torus = new THREE.Mesh(geometry,material);
-
-//scene.add(torus)
+//Lights and Helper
 
 const pointLight = new THREE.PointLight(0xffffff)
 pointLight.position.set(100,0,-200)
@@ -59,7 +55,7 @@ Array(1500).fill().forEach(addStar)
 
 //Background
 
-const spaceTexture = new THREE.TextureLoader().load('space2.jpg');
+const spaceTexture = new THREE.TextureLoader().load('black.jpg');
 scene.background = spaceTexture;
 
 //Sun
@@ -67,12 +63,12 @@ scene.background = spaceTexture;
 const sunTexture = new THREE.TextureLoader().load('sun.jpg')
 
 const sun = new THREE.Mesh(
-  new THREE.SphereGeometry(500,32,32),
+  new THREE.SphereGeometry(400,32,32),
   new THREE.MeshStandardMaterial({
     map:sunTexture,
   })
 )
-sun.position.set(100,0,-1000)
+sun.position.set(400,0,-1000)
 scene.add(sun)
 
 //Earth
@@ -101,13 +97,20 @@ const moon = new THREE.Mesh(
 moon.position.set(50,0,-20);
 scene.add(moon);
 
+//Moon Orbit
+
+
+
+
 //Scroll
 function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
+   const t = document.body.getBoundingClientRect().top
+  
+  
 
-  //camera.position.z = t * -0.01;
-  camera.position.x = t * -0.02;
-  camera.rotation.y = t * -0.02;
+  camera.position.y = t * -0.025;
+  camera.position.x = t * -0.075;
+  //.rotation.y = t * -0.05;
 }
 
 
@@ -120,11 +123,17 @@ function animate() {
   earth.rotation.y +=0.0008
   moon.rotation.y +=0.001
   sun.rotation.y += 0.00003
+
+  moon.position.x += -0.001
+  moon.position.z += -0.001
+  
+  
+  
    controls.update();
 
   renderer.render(scene, camera);
-
 }
+
 
 
 animate();
