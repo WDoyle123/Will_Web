@@ -86,7 +86,7 @@ scene.add(earth)
 
 //Moon
 
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+const moonTexture = new THREE.TextureLoader().load('https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_1k.jpg');
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(1,32,32),
