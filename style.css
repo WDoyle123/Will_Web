@@ -6,7 +6,7 @@ canvas{
   src: url("moon.jpg");
   src:url("earth.jpg");
   src: url("sun.jpg");
-  opacity: 0.9;
+  opacity: 1;
 
 }
 
@@ -55,7 +55,7 @@ header {
 }
 
 section {
-  grid-column: 2 / 8;
+  grid-column: 2 / 6;
   padding: 1rem;
   background: var(--dark-bg);
   font-size: 1.25rem;
